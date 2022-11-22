@@ -11,7 +11,7 @@ int main()
 		t = i * 3;
 		v = g * t;
 		s = (g / 2) * pow(t, 2);
-		cout << "Situacija u " << i * 3 << "-oj sekundi je: " << endl;
+		cout << "Situacija u " << t << "-oj sekundi je: " << endl;
 		cout << "Brzina: " << v << endl;
 		cout << "Predjeni put: " << s<<endl;
 	}
