@@ -1,65 +1,42 @@
 #include <iostream>
-#include <cmath>	
 using namespace std;
 
-bool isProst(int broj)
-{
-    for (int i = 2; i < broj / 2; i++)
-        if (broj % i == 0)
-            return false;
 
+
+bool prost(int a) {
+    for (int i = 2; i < a / 2; i++)
+    {
+        if (a % i == 0)
+            return false;
+    }
     return true;
 }
 
-void goldbach(int n1, int n2)
-{
-    if (n1 % 2 != 0) 
-        n1++;
-    do
-    {
-        for (int i = 1; i <= n1; i++)
-        {
-            for (int j = 1; j <= n1; j++)
-            {
-                if (isProst(i) && isProst(j))
-                {
-                    if (i + j == n1)
-                    {
-                        cout << i << " + " << j << " = " << n1 << endl;
-                        n1 += 2;
-                        break;
-                    }
-                }
 
-            }
-
-            if (n1 >= n2) break;
-
-        }
-
-    } while (n1 < n2);
-}
 
 int main()
 {
-    int n1, n2;
-
+    int a, b;
     do
     {
-        cout << "Unesite 2 broja: " << endl;
-        cin >> n1 >> n2;
-
-    } while (n1 <= 0 || n2 <= 0);
-
-    if (n1 > n2)
+        cin >> a >> b;
+    } while (a < 10 || b < a + 20);
+    if (a % 2 != 0)
     {
-        int temp = n2;
-        n2 = n1;
-        n1 = temp;
+        a++;
     }
+    for (int i = a; i <= b; i += 2)
+    {
+        //cout << i<<endl;
+        for (int j = i /2, k = i / 2; j < i; j ++, k --)
+        {
+            if (prost(j) && prost(k))
+            {
+                cout << i << " = " << j << " + " << k << endl;
+                break;
+            }
+        }
+    }
+    return 0;
 
-    goldbach(n1,n2);
-
-	system("pause>0");
-	return 0;
 }
